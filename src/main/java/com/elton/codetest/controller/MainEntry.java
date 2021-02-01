@@ -28,7 +28,7 @@ public class MainEntry {
                 .map(generator::generateOutput)
                 .collect(Collectors.toList());
 
-        // GetOutput
+        /* Get Output */
         FilesIO.write(outputs);
         System.out.println("< Please check the final Output in the classpath: resources/output.json !!! >");
     }

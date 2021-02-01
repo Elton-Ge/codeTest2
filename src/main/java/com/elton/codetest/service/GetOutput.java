@@ -39,7 +39,7 @@ public class GetOutput {
     }
 
 
-    /* (item, unit price)*/
+    /* calculate unit price*/
     private ArrayList<Combination> calculateUnitPrice(Item item, HashMap<Integer, Integer> combination){
         HashMap<Integer, Double> priceMapper = item.priceMapper();
         ArrayList<Combination> combinations = new ArrayList<>();

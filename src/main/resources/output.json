@@ -1,0 +1,48 @@
+[
+  {
+    "totalPrice": 800.0,
+    "bundlesCombination": [
+      {
+        "number": 1,
+        "bundle": 10,
+        "unitPrice": 800.0
+      }
+    ],
+    "totalItems": 10,
+    "formatCode": "IMG"
+  },
+  {
+    "totalPrice": 1957.5,
+    "bundlesCombination": [
+      {
+        "number": 1,
+        "bundle": 6,
+        "unitPrice": 810.0
+      },
+      {
+        "number": 1,
+        "bundle": 9,
+        "unitPrice": 1147.5
+      }
+    ],
+    "totalItems": 15,
+    "formatCode": "FLAC"
+  },
+  {
+    "totalPrice": 2370.0,
+    "bundlesCombination": [
+      {
+        "number": 1,
+        "bundle": 3,
+        "unitPrice": 570.0
+      },
+      {
+        "number": 2,
+        "bundle": 5,
+        "unitPrice": 1800.0
+      }
+    ],
+    "totalItems": 13,
+    "formatCode": "VID"
+  }
+]
