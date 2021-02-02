@@ -20,7 +20,9 @@ dependencies {
     implementation 'commons-io:commons-io:2.8.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.1'
     testImplementation 'junit:junit:4.13'
-}
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-log4j12:1.7.18'
+}                                                      
 
 group = 'groupId'
 version = '1.0-SNAPSHOT'
@@ -34,3 +36,4 @@ publishing {
         }
     }
 }
+

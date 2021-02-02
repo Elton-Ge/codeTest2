@@ -1,10 +1,10 @@
-package com.elton.codetest.controller;
+package com.elton.codetest;
 
-import com.elton.codetest.pojo.input.Input;
-import com.elton.codetest.pojo.output.Output;
+import com.elton.codetest.pojo.input.OrderItem;
+import com.elton.codetest.pojo.output.FilledOrderItem;
 import com.elton.codetest.pojo.standard.FormatList;
 import com.elton.codetest.service.FilesIO;
-import com.elton.codetest.service.GetOutput;
+import com.elton.codetest.service.OrderFiller;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,19 +17,19 @@ public class MainEntry {
     public void run() {
         /* Initialize */
         FormatList formatList = FilesIO.readConfig();
-        GetOutput generator = new GetOutput();
+        OrderFiller generator = new OrderFiller();
         generator.setFormat(formatList);
 
         /* GetInput */
-        List<Input> inputs = FilesIO.readInput();
+        List<OrderItem> orderItems = FilesIO.readInput();
 
         /* Calculate */
-        List<Output> outputs = inputs.stream()
+        List<FilledOrderItem> filledOrderItems = orderItems.stream()
                 .map(generator::generateOutput)
                 .collect(Collectors.toList());
 
-        /* Get Output */
-        FilesIO.write(outputs);
-        System.out.println("< Please check the final Output in the classpath: resources/output.json !!! >");
+        /* Generate Output */
+        FilesIO.write(filledOrderItems);
+        System.out.println("< Please check the final Output under root directory: output.json !!! >");
     }
 }

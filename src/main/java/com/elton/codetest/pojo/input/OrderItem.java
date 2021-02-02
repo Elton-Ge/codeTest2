@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Input {
+public class OrderItem {
     private int totalItems;
     private String formatCode;
 }

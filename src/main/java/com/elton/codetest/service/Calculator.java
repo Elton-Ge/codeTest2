@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Stack;
+import java.util.*;
 
 
-public class Calculate {
-    public HashMap<Integer, Integer> getCombination(ArrayList<Integer> category, int num) {
+public class Calculator {
+    public Map<Integer, Integer> getCombination(List<Integer> category, int num) {
         Stack<ItemStack> stack = new Stack<>();
-        ArrayList<ItemStack> visited = new ArrayList<>();
+        List<ItemStack> visited = new ArrayList<>();
         stack.push(new ItemStack(num, null));
         while (true) {
             if (stack.isEmpty()) {
@@ -25,14 +23,15 @@ public class Calculate {
                 }
                 visited.add(item);
             }
-            ArrayList<ItemStack> newItems = getNewItems(item, category);
-            pushStack(stack, newItems);
+            List<ItemStack> newItems = getNewItems(item, category);
+            newItems.forEach(newItem -> stack.push(newItem));
         }
         return null;
     }
 
-    private HashMap<Integer, Integer> resultMapper(ArrayList<Integer> result) {
-        HashMap<Integer, Integer> mapper = new HashMap<>();
+
+    private Map<Integer, Integer> resultMapper(List<Integer> result) {
+        Map<Integer, Integer> mapper = new HashMap<>();
         for (Integer i : result) {
             if (mapper.get(i) == null) {
                 mapper.put(i, 0);
@@ -42,9 +41,9 @@ public class Calculate {
         return mapper;
     }
 
-    private ArrayList<Integer> getResultFromParents(ItemStack item) {
+    private List<Integer> getResultFromParents(ItemStack item) {
         int num = item.num;
-        ArrayList<Integer> result = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         while (item.getParents() != null) {
             result.add(item.parents.get(0).num - item.num);
             item = item.getParents().get(0);
@@ -53,17 +52,12 @@ public class Calculate {
         return result;
     }
 
-    private void pushStack(Stack<ItemStack> stack, ArrayList<ItemStack> newItems) {
-        for (ItemStack newItem : newItems) {
-            stack.push(newItem);
-        }
-    }
 
-    private ArrayList<ItemStack> getNewItems(ItemStack currentItem, ArrayList<Integer> category) {
-        ArrayList<ItemStack> newItems = new ArrayList<>();
+    private List<ItemStack> getNewItems(ItemStack currentItem, List<Integer> category) {
+        List<ItemStack> newItems = new ArrayList<>();
         for (Integer i : category) {
             if (currentItem.num > i) {
-                ArrayList<ItemStack> p = new ArrayList<>();
+                List<ItemStack> p = new ArrayList<>();
                 p.add(currentItem);
                 newItems.add(new ItemStack(currentItem.num - i, p));
             }
@@ -77,7 +71,7 @@ public class Calculate {
     @NoArgsConstructor
     private static class ItemStack {
         private int num;
-        private ArrayList<ItemStack> parents;
+        private List<ItemStack> parents;
     }
 
 }

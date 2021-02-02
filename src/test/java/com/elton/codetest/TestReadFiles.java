@@ -1,22 +1,22 @@
 package com.elton.codetest;
 
-import com.elton.codetest.pojo.input.Input;
+import com.elton.codetest.pojo.input.OrderItem;
 import com.elton.codetest.service.FilesIO;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestReadFiles {
-
 
     @Test
     public void readInput() {
         FilesIO filesIO = new FilesIO();
-        ArrayList<Input> real = filesIO.readInput();
-        ArrayList<Input> expect = new ArrayList<>();
-        expect.add(new Input(10,"IMG"));
-        expect.add(new Input(15,"FLAC"));
-        expect.add(new Input(13,"VID"));
+        List<OrderItem> real = filesIO.readInput();
+        List<OrderItem> expect = new ArrayList<>();
+        expect.add(new OrderItem(10,"IMG"));
+        expect.add(new OrderItem(15,"FLAC"));
+        expect.add(new OrderItem(13,"VID"));
         Assert.assertEquals(real, expect);
     }
 }

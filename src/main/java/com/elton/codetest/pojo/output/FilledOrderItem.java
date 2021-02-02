@@ -1,7 +1,7 @@
 package com.elton.codetest.pojo.output;
 
 
-import com.elton.codetest.pojo.input.Input;
+import com.elton.codetest.pojo.input.OrderItem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=false)
-public class Output  extends Input {
+public class FilledOrderItem extends OrderItem {
     private Double totalPrice;
     private List<Combination> bundlesCombination;
 }

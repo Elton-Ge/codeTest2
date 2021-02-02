@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class FormatList {
-    private List<Item> formats;
+    private List<MediaBundles> formats;
 }
